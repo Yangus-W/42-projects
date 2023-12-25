@@ -22,5 +22,6 @@ int	print_str(char *str);
 int	print_digit(long n, int base, int i);
 int	print_ptr(void *ptr);
 int	print_unsigned_int(unsigned long n);
+int	ft_printf(const char *format, ...);
 
 #endif
