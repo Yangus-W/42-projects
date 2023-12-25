@@ -6,12 +6,12 @@
 #    By: yawang <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 17:59:36 by yawang            #+#    #+#              #
-#    Updated: 2023/12/24 18:55:42 by yawang           ###   ########.fr        #
+#    Updated: 2023/12/25 13:33:14 by yawang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 SRCS = ft_printf.c print_char.c print_digit.c print_ptr.c print_str.c \
-	print_unsigned_int.c print_digit_upper.c
+	print_unsigned_int.c
 
 OBJS = ${SRCS:.c=.o}
 

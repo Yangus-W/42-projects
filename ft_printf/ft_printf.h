@@ -6,7 +6,7 @@
 /*   By: yawang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 16:51:04 by yawang            #+#    #+#             */
-/*   Updated: 2023/12/24 19:24:57 by yawang           ###   ########.fr       */
+/*   Updated: 2023/12/25 13:31:46 by yawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	print_char(int c);
 int	print_str(char *str);
 int	print_digit(long n, int base, int i);
 int	print_ptr(void *ptr);
-int	print_digit_upper(long n, int base);
-int	print_unsigned_int(unsigned int n, int base);
+int	print_unsigned_int(unsigned long n);
 
 #endif

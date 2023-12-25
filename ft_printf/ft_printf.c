@@ -6,7 +6,7 @@
 /*   By: yawang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:18:51 by yawang            #+#    #+#             */
-/*   Updated: 2023/12/24 19:26:48 by yawang           ###   ########.fr       */
+/*   Updated: 2023/12/25 13:35:44 by yawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ int	print_format(char specifier, va_list ap)
 		count += print_ptr(va_arg(ap, void *));
 	else if (specifier == 'd' || specifier == 'i')
 		count += print_digit((long)(va_arg(ap, int)), 10, 1);
-	// else if (specifier == 'u')
-	// 	count += print_unsigned_int((unsigned long)(va_arg(ap, int)), 10);
+	else if (specifier == 'u')
+		count += print_unsigned_int((unsigned long)(va_arg(ap, unsigned int)));
 	else if (specifier == 'x')
 		count += print_digit((long)(va_arg(ap, unsigned int)), 16, 1);
 	else if (specifier == 'X')
@@ -58,7 +58,7 @@ int	ft_printf(const char *format, ...)
 }
 
 /* TEST */
-#include <stdio.h>
+/* #include <stdio.h>
 int	main(void)
 {
 	int	count;
@@ -103,5 +103,5 @@ int	main(void)
 	ft_printf("The chars written are %d\n", count);
 	count = printf("%X\n", 111);
 	printf("The chars written are %d\n", count);
-}
+} */
 // write returns the number of bytes upon successful completion
