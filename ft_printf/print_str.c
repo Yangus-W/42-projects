@@ -6,7 +6,7 @@
 /*   By: yawang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 16:54:52 by yawang            #+#    #+#             */
-/*   Updated: 2023/12/24 17:29:57 by yawang           ###   ########.fr       */
+/*   Updated: 2023/12/25 15:55:23 by yawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,18 @@
 
 int	print_str(char *str)
 {
-	int	count;
+	int	i;
 
-	count = 0;
-	while (*str)
+	i = 0;
+	if (!str)
 	{
-		print_char((int)*str);
-		++count;
-		++str;
+		print_str("(null)");
+		return (6);
 	}
-	return (count);
+	while (str[i])
+	{
+		write(1, &str[i], 1);
+		i++;
+	}
+	return (i);
 }
