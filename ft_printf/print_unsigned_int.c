@@ -6,7 +6,7 @@
 /*   By: yawang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:04:49 by yawang            #+#    #+#             */
-/*   Updated: 2023/12/25 15:07:39 by yawang           ###   ########.fr       */
+/*   Updated: 2023/12/25 18:15:17 by yawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ static size_t	count_digit(unsigned long n)
 
 char	*ft_itoa_unsigned(unsigned int n)
 {
-	char	*str;
-	size_t	digit;
+	char			*str;
+	size_t			digit;
 	unsigned long	nb;
 
 	digit = count_digit((unsigned long)n);
@@ -55,7 +55,7 @@ int	print_unsigned_int(unsigned long n)
 {
 	char	*nb;
 	int		result;
-	
+
 	nb = ft_itoa_unsigned(n);
 	if (!nb)
 		return (-1);
