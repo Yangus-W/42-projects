@@ -6,7 +6,7 @@
 /*   By: yawang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/25 13:04:49 by yawang            #+#    #+#             */
-/*   Updated: 2023/12/25 13:32:56 by yawang           ###   ########.fr       */
+/*   Updated: 2023/12/25 15:07:39 by yawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,12 @@ char	*ft_itoa_unsigned(unsigned int n)
 int	print_unsigned_int(unsigned long n)
 {
 	char	*nb;
+	int		result;
 	
 	nb = ft_itoa_unsigned(n);
-	return (print_str(nb));
+	if (!nb)
+		return (-1);
+	result = print_str(nb);
+	free(nb);
+	return (result);
 }
