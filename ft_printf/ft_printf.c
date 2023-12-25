@@ -6,7 +6,7 @@
 /*   By: yawang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:18:51 by yawang            #+#    #+#             */
-/*   Updated: 2023/12/25 13:35:44 by yawang           ###   ########.fr       */
+/*   Updated: 2023/12/25 13:59:13 by yawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,4 +104,5 @@ int	main(void)
 	count = printf("%X\n", 111);
 	printf("The chars written are %d\n", count);
 } */
+
 // write returns the number of bytes upon successful completion
