@@ -1,29 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   print_digit.c                                      :+:      :+:    :+:   */
+/*   print_digit_hexa.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yawang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/24 16:56:11 by yawang            #+#    #+#             */
-/*   Updated: 2024/01/04 19:08:38 by yawang           ###   ########.fr       */
+/*   Created: 2024/01/04 18:23:33 by yawang            #+#    #+#             */
+/*   Updated: 2024/01/04 19:37:01 by yawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	print_digit(long n)
+int	print_digit_hexa(unsigned long long n, char specifier)
 {
-	int	count;
-	
-	count = 0;
-	if (n < 0)
+	int		count;
+	char	*symbols;
+
+	if (specifier == 'x' || specifier == 'p')
+		symbols = "0123456789abcdef";
+	if (specifier == 'X')
+		symbols = "0123456789ABCDEF";
+	if (n < 16)
 	{
-		count += print_char('-');
-		n *= -1;
+		return (print_char(symbols[n]));
 	}
-	if (n >= 10)
-		count += print_digit(n / 10);
-	count += print_char(n % 10 + '0');
-	return (count);
+	else
+	{
+		count = print_digit_hexa(n / 16, specifier);
+		return (count + print_digit_hexa(n % 16, specifier));
+	}
 }

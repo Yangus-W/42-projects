@@ -6,7 +6,7 @@
 /*   By: yawang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:18:51 by yawang            #+#    #+#             */
-/*   Updated: 2023/12/25 18:13:05 by yawang           ###   ########.fr       */
+/*   Updated: 2024/01/04 19:38:36 by yawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,15 @@ int	print_format(char specifier, va_list ap)
 	else if (specifier == 's')
 		count += print_str(va_arg(ap, char *));
 	else if (specifier == 'p')
-		count += print_ptr(va_arg(ap, unsigned long long));
+		count += print_ptr(va_arg(ap, unsigned long long), specifier);
 	else if (specifier == 'd' || specifier == 'i')
-		count += print_digit((long)(va_arg(ap, int)), 10, 1);
+		count += print_digit((long)(va_arg(ap, int)));
 	else if (specifier == 'u')
 		count += print_unsigned_int((unsigned long)(va_arg(ap, unsigned int)));
 	else if (specifier == 'x')
-		count += print_digit((long)(va_arg(ap, unsigned int)), 16, 1);
+		count += print_digit_hexa((long)(va_arg(ap, unsigned int)), specifier);
 	else if (specifier == 'X')
-		count += print_digit((long)(va_arg(ap, unsigned int)), 16, 2);
+		count += print_digit_hexa((long)(va_arg(ap, unsigned int)), specifier);
 	else if (specifier == '%')
 		count += print_char('%');
 	else
@@ -60,49 +60,55 @@ int	ft_printf(const char *format, ...)
 /* TEST */
 /*
 #include <stdio.h>
+#include <limits.h>
 int	main(void)
 {
 	int	count;
 	char	*ptr = "hedfgsllo";
 
-	count = ft_printf("%d\n", 111);
-	ft_printf("The chars written are %d\n", count);
-	count = printf("%d\n", 111);
-	printf("The chars written are %d\n", count);
+	// count = ft_printf("%d\n", 111);
+	// ft_printf("The chars written are %d\n", count);
+	// count = printf("%d\n", 111);
+	// printf("The chars written are %d\n", count);
 	
-	count = ft_printf("%p\n", ptr);
-	ft_printf("The chars written are %d\n", count);
-	count = printf("%p\n", ptr);
-	printf("The chars written are %d\n", count);
+	// count = ft_printf("%p\n", ptr);
+	// ft_printf("The chars written are %d\n", count);
+	// count = printf("%p\n", ptr);
+	// printf("The chars written are %d\n", count);
 	
-	count = ft_printf("%p\n", "oisdjf");
-	ft_printf("The chars written are %d\n", count);
-	count = printf("%p\n", "oisdjf");
-	printf("The chars written are %d\n", count);
+	// count = ft_printf("%p\n", "oisdjf");
+	// ft_printf("The chars written are %d\n", count);
+	// count = printf("%p\n", "oisdjf");
+	// printf("The chars written are %d\n", count);
 	
-	count = ft_printf("%i\n", 10);
-	ft_printf("The chars written are %d\n", count);
-	count = printf("%i\n", 10);
-	printf("The chars written are %d\n", count);
+	// count = ft_printf("%i\n", 10);
+	// ft_printf("The chars written are %d\n", count);
+	// count = printf("%i\n", 10);
+	// printf("The chars written are %d\n", count);
 	
-	count = ft_printf("%u\n", -109);
-	ft_printf("The chars written are %d\n", count);
-	count = printf("%u\n", -109);
-	printf("The chars written are %d\n", count);
+	// count = ft_printf("%u\n", -109);
+	// ft_printf("The chars written are %d\n", count);
+	// count = printf("%u\n", -109);
+	// printf("The chars written are %d\n", count);
 	
-	count = ft_printf("%%\n", '%');
-	ft_printf("The chars written are %d\n", count);
-	count = printf("%c\n", '%');
-	printf("The chars written are %d\n", count);
+	// count = ft_printf("%%\n", '%');
+	// ft_printf("The chars written are %d\n", count);
+	// count = printf("%c\n", '%');
+	// printf("The chars written are %d\n", count);
 	
-	count = ft_printf("%x\n", 111);
-	ft_printf("The chars written are %d\n", count);
-	count = printf("%x\n", 111);
-	printf("The chars written are %d\n", count);
+	// count = ft_printf("%x\n", 111);
+	// ft_printf("The chars written are %d\n", count);
+	// count = printf("%x\n", 111);
+	// printf("The chars written are %d\n", count);
 	
-	count = ft_printf("%X\n", 111);
+	// count = ft_printf("%X\n", 111);
+	// ft_printf("The chars written are %d\n", count);
+	// count = printf("%X\n", 111);
+	// printf("The chars written are %d\n", count);
+	
+	count = ft_printf("%p\n", (void *)-1);
 	ft_printf("The chars written are %d\n", count);
-	count = printf("%X\n", 111);
+	count = printf("%p\n", (void *)-1);
 	printf("The chars written are %d\n", count);
 } 
 */
