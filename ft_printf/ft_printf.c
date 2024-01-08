@@ -6,7 +6,7 @@
 /*   By: yawang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 17:18:51 by yawang            #+#    #+#             */
-/*   Updated: 2024/01/04 19:38:36 by yawang           ###   ########.fr       */
+/*   Updated: 2024/01/08 16:58:46 by yawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	print_format(char specifier, va_list ap)
 	else if (specifier == 'd' || specifier == 'i')
 		count += print_digit((long)(va_arg(ap, int)));
 	else if (specifier == 'u')
-		count += print_unsigned_int((unsigned long)(va_arg(ap, unsigned int)));
+		count += print_digit((long)(va_arg(ap, unsigned int)));
 	else if (specifier == 'x')
 		count += print_digit_hexa((long)(va_arg(ap, unsigned int)), specifier);
 	else if (specifier == 'X')
@@ -43,6 +43,8 @@ int	ft_printf(const char *format, ...)
 	int		count;
 	va_list	ap;
 
+	if (!format)
+		return (-1);
 	va_start(ap, format);
 	count = 0;
 	while (*format)
@@ -66,45 +68,45 @@ int	main(void)
 	int	count;
 	char	*ptr = "hedfgsllo";
 
-	// count = ft_printf("%d\n", 111);
-	// ft_printf("The chars written are %d\n", count);
-	// count = printf("%d\n", 111);
-	// printf("The chars written are %d\n", count);
+	count = ft_printf("%d\n", 111);
+	ft_printf("The chars written are %d\n", count);
+	count = printf("%d\n", 111);
+	printf("The chars written are %d\n", count);
 	
-	// count = ft_printf("%p\n", ptr);
-	// ft_printf("The chars written are %d\n", count);
-	// count = printf("%p\n", ptr);
-	// printf("The chars written are %d\n", count);
+	count = ft_printf("%p\n", ptr);
+	ft_printf("The chars written are %d\n", count);
+	count = printf("%p\n", ptr);
+	printf("The chars written are %d\n", count);
 	
-	// count = ft_printf("%p\n", "oisdjf");
-	// ft_printf("The chars written are %d\n", count);
-	// count = printf("%p\n", "oisdjf");
-	// printf("The chars written are %d\n", count);
+	count = ft_printf("%p\n", "oisdjf");
+	ft_printf("The chars written are %d\n", count);
+	count = printf("%p\n", "oisdjf");
+	printf("The chars written are %d\n", count);
 	
-	// count = ft_printf("%i\n", 10);
-	// ft_printf("The chars written are %d\n", count);
-	// count = printf("%i\n", 10);
-	// printf("The chars written are %d\n", count);
+	count = ft_printf("%i\n", 10);
+	ft_printf("The chars written are %d\n", count);
+	count = printf("%i\n", 10);
+	printf("The chars written are %d\n", count);
 	
-	// count = ft_printf("%u\n", -109);
-	// ft_printf("The chars written are %d\n", count);
-	// count = printf("%u\n", -109);
-	// printf("The chars written are %d\n", count);
+	count = ft_printf("%u\n", -109);
+	ft_printf("The chars written are %d\n", count);
+	count = printf("%u\n", -109);
+	printf("The chars written are %d\n", count);
 	
-	// count = ft_printf("%%\n", '%');
-	// ft_printf("The chars written are %d\n", count);
-	// count = printf("%c\n", '%');
-	// printf("The chars written are %d\n", count);
+	count = ft_printf("%%\n", '%');
+	ft_printf("The chars written are %d\n", count);
+	count = printf("%c\n", '%');
+	printf("The chars written are %d\n", count);
 	
-	// count = ft_printf("%x\n", 111);
-	// ft_printf("The chars written are %d\n", count);
-	// count = printf("%x\n", 111);
-	// printf("The chars written are %d\n", count);
+	count = ft_printf("%x\n", 111);
+	ft_printf("The chars written are %d\n", count);
+	count = printf("%x\n", 111);
+	printf("The chars written are %d\n", count);
 	
-	// count = ft_printf("%X\n", 111);
-	// ft_printf("The chars written are %d\n", count);
-	// count = printf("%X\n", 111);
-	// printf("The chars written are %d\n", count);
+	count = ft_printf("%X\n", 111);
+	ft_printf("The chars written are %d\n", count);
+	count = printf("%X\n", 111);
+	printf("The chars written are %d\n", count);
 	
 	count = ft_printf("%p\n", (void *)-1);
 	ft_printf("The chars written are %d\n", count);
