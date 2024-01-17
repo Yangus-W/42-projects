@@ -6,7 +6,7 @@
 /*   By: yawang <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 16:51:04 by yawang            #+#    #+#             */
-/*   Updated: 2024/01/04 19:37:40 by yawang           ###   ########.fr       */
+/*   Updated: 2024/01/17 19:20:03 by yawang           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	print_str(char *str);
 int	print_digit(long n);
 int	print_digit_hexa(unsigned long long n, char specifier);
 int	print_ptr(unsigned long long ptr, char specifier);
-int	print_unsigned_int(unsigned long n);
 int	ft_printf(const char *format, ...);
 
 #endif

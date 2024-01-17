@@ -6,7 +6,7 @@
 #    By: yawang <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/11 17:59:36 by yawang            #+#    #+#              #
-#    Updated: 2024/01/04 18:51:11 by yawang           ###   ########.fr        #
+#    Updated: 2024/01/17 19:17:23 by yawang           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,26 +19,17 @@ CFLAGS = -Wall -Wextra -Werror
 CC = cc
 NAME = libftprintf.a
 
-%.o: %.c
-	${CC} ${CFLAGS} -c $< -o $@
-
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	@make -C libft
-	@cp ./libft/libft.a .
-	@mv libft.a ${NAME}
 	ar rcs ${NAME} ${OBJS}
 	
 clean:
 	rm -f ${OBJS}
-	@make clean -C libft
 
 fclean: clean
 	rm -f ${NAME}
-	rm -f ./libft/libft.a
 	
-re:
-	fclean all
+re: fclean all
 
 .PHONY: all clean fclean re
